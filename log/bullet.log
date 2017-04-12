@@ -1,0 +1,471 @@
+2017-04-10 16:08:39[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb___545683137256209222_70194996110460'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb___545683137256209222_70194996110460'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__2609199085095525561_70195008392720'
+
+2017-04-10 16:09:40[WARN] user: Dani
+GET http://localhost:3000/polls/1
+AVOID eager loading detected
+  Poll::Question => [:author, :proposal]
+  Remove from your finder: :includes => [:author, :proposal]
+Call stack
+
+2017-04-10 16:09:48[WARN] user: Dani
+GET http://localhost:3000/debates
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:10:02[WARN] user: Dani
+GET http://localhost:3000/debates?search=debitis
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:10:06[WARN] user: Dani
+GET http://localhost:3000/debates?search=quia
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:10:08[WARN] user: Dani
+GET http://localhost:3000/debates?search=incidunt
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:10:11[WARN] user: Dani
+GET http://localhost:3000/debates?search=corrupti
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:10:13[WARN] user: Dani
+GET http://localhost:3000/debates?search=ipsum
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:10:16[WARN] user: Dani
+GET http://localhost:3000/debates?order=created_at&page=1&search=ipsum
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:10:20[WARN] user: Dani
+GET http://localhost:3000/debates?order=hot_score&page=1&search=ipsum
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb___3213366117156716617_70149626181960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___2809816725106384469_70149615050120'
+
+2017-04-10 16:12:22[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb___3997674089134056980_70149425073480'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb___3997674089134056980_70149425073480'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__1666971390610262041_70149419039100'
+
+2017-04-11 12:02:16[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__952472456255101992_70096991065420'
+
+2017-04-11 12:06:25[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__952472456255101992_70096991065420'
+
+2017-04-11 12:26:39[WARN] user: Dani
+GET http://localhost:3000/debates
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb__1634388780136612962_70097029899240'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb__1634388780136612962_70097029899240'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___934430580731560250_70096789996500'
+
+2017-04-11 12:26:49[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096822263420'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70097031034940'
+
+2017-04-11 12:26:54[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__952472456255101992_70096991065420'
+
+2017-04-11 12:26:57[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096822263420'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70097031034940'
+
+2017-04-11 12:28:34[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096822263420'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70097031034940'
+
+2017-04-11 12:28:48[WARN] user: Dani
+GET http://localhost:3000/proposals/69-rerum-facere-eos-sed-eaque-maiores-aut-dolorem
+USE eager loading detected
+  Comment => [:commentable]
+  Add to your finder: :includes => [:commentable]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/comments/_comment.html.erb:2:in `_app_views_comments__comment_html_erb__1052389798189342095_70097031443420'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_comments.html.erb:19:in `block (2 levels) in _app_views_proposals__comments_html_erb___1082647773631017737_70096826919660'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_comments.html.erb:18:in `block in _app_views_proposals__comments_html_erb___1082647773631017737_70096826919660'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_comments.html.erb:1:in `_app_views_proposals__comments_html_erb___1082647773631017737_70096826919660'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/show.html.erb:151:in `_app_views_proposals_show_html_erb___3142388366621538920_70096859088020'
+
+2017-04-11 12:29:11[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__952472456255101992_70096991065420'
+
+2017-04-11 12:29:30[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__952472456255101992_70096991065420'
+
+2017-04-11 15:11:10[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096833353100'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70096856990240'
+
+2017-04-11 15:11:14[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb__608361945740713186_70097039263960'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__952472456255101992_70096991065420'
+
+2017-04-11 15:12:09[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096822263420'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70097031034940'
+
+2017-04-11 17:09:06[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096833353100'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70096856990240'
+
+2017-04-11 17:09:14[WARN] user: Dani
+GET http://localhost:3000/debates
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb__1634388780136612962_70097029899240'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb__1634388780136612962_70097029899240'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___934430580731560250_70096789996500'
+
+2017-04-11 17:11:34[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096822263420'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70097031034940'
+
+2017-04-11 17:11:55[WARN] user: Dani
+GET http://localhost:3000/debates
+USE eager loading detected
+  Debate => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:17:in `block in _app_views_debates__debate_html_erb__1634388780136612962_70097029899240'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/_debate.html.erb:1:in `_app_views_debates__debate_html_erb__1634388780136612962_70097029899240'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/debates/index.html.erb:50:in `_app_views_debates_index_html_erb___934430580731560250_70096789996500'
+
+2017-04-11 17:13:56[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096833353100'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70096856990240'
+
+2017-04-11 17:13:57[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___2843851588425690616_70096833353100'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb__414670701686616291_70096856990240'
+
+2017-04-11 17:27:13[WARN] user: Dani
+GET http://192.168.1.94:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb__4231715950856351408_70137501351280'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___3883730913181464949_70137513741960'
+
+2017-04-11 17:28:23[WARN] user: Dani
+GET http://192.168.1.94:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb__783189104939583271_70137494796000'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb__783189104939583271_70137494796000'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb__3199820734380164477_70137494685520'
+
+2017-04-11 17:28:48[WARN] user: Dani
+GET http://192.168.1.94:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb__4231715950856351408_70137336204640'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___3883730913181464949_70137492032620'
+
+2017-04-11 17:30:02[WARN] user: Dani
+GET http://192.168.1.94:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb__4231715950856351408_70137336204640'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___3883730913181464949_70137492032620'
+
+2017-04-11 17:31:04[WARN] user: Dani
+GET http://192.168.1.94:3000/proposals/74-vel-cumque-voluptas-accusantium-fugit-animi-sint-nisi
+USE eager loading detected
+  Comment => [:commentable]
+  Add to your finder: :includes => [:commentable]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/comments/_comment.html.erb:2:in `_app_views_comments__comment_html_erb___2067071247900492133_70137311605420'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_comments.html.erb:19:in `block (2 levels) in _app_views_proposals__comments_html_erb___4569166246094891839_70137402518260'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_comments.html.erb:18:in `block in _app_views_proposals__comments_html_erb___4569166246094891839_70137402518260'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_comments.html.erb:1:in `_app_views_proposals__comments_html_erb___4569166246094891839_70137402518260'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/show.html.erb:151:in `_app_views_proposals_show_html_erb__2607391560399111997_70137452211320'
+
+2017-04-11 17:31:12[WARN] user: Dani
+GET http://192.168.1.94:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb__4231715950856351408_70137336204640'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___3883730913181464949_70137492032620'
+
+2017-04-11 17:31:31[WARN] user: Dani
+GET http://192.168.1.94:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb__4231715950856351408_70137336204640'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___3883730913181464949_70137492032620'
+
+2017-04-11 17:34:06[WARN] user: Dani
+GET http://192.168.1.94:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb__4231715950856351408_70137336204640'
+  /Volumes/Data/CiudadanoInteligente/consul/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___3883730913181464949_70137492032620'
+
+2017-04-12 09:53:42[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___408053996374298767_70250707107280'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___2432804720048624650_70250718877720'
+
+2017-04-12 09:55:08[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___408053996374298767_70250707107280'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___2432804720048624650_70250718877720'
+
+2017-04-12 09:55:10[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___408053996374298767_70250707107280'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___2432804720048624650_70250718877720'
+
+2017-04-12 09:55:13[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb___664083939575396677_70250536278780'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb___664083939575396677_70250536278780'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb___2072499993930038879_70250792935600'
+
+2017-04-12 09:55:16[WARN] user: Dani
+GET http://localhost:3000/polls
+USE eager loading detected
+  Poll => [:questions]
+  Add to your finder: :includes => [:questions]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/_poll_group.html.erb:46:in `block in _app_views_polls__poll_group_html_erb___664083939575396677_70250536278780'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/_poll_group.html.erb:1:in `each'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/_poll_group.html.erb:1:in `_app_views_polls__poll_group_html_erb___664083939575396677_70250536278780'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/polls/index.html.erb:22:in `_app_views_polls_index_html_erb___2072499993930038879_70250792935600'
+
+2017-04-12 09:55:20[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:17:in `calculate_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/helpers/cache_keys_helper.rb:4:in `locale_and_user_status'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___408053996374298767_70250766795460'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___2432804720048624650_70250751888260'
+

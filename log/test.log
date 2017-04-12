@@ -1,0 +1,625 @@
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE EXTENSION IF NOT EXISTS "unaccent"
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "pg_trgm"[0m
+  [1m[35m (5.9ms)[0m  DROP TABLE "activities" CASCADE
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "activities" ("id" serial primary key, "user_id" integer, "action" character varying, "actionable_id" integer, "actionable_type" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_activities_on_actionable_id_and_actionable_type" ON "activities" USING btree ("actionable_id", "actionable_type")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_activities_on_user_id" ON "activities" USING btree ("user_id")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "administrators" CASCADE
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "administrators" ("id" serial primary key, "user_id" integer) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_administrators_on_user_id" ON "administrators" USING btree ("user_id")
+  [1m[36m (2.4ms)[0m  [1mDROP TABLE "ahoy_events" CASCADE[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "ahoy_events" ("id" uuid PRIMARY KEY , "visit_id" uuid, "user_id" integer, "name" character varying, "properties" jsonb, "time" timestamp, "ip" character varying) 
+  [1m[36m (2.0ms)[0m  [1mCREATE  INDEX  "index_ahoy_events_on_name_and_time" ON "ahoy_events" USING btree ("name", "time")[0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_ahoy_events_on_time" ON "ahoy_events" USING btree ("time")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_ahoy_events_on_user_id" ON "ahoy_events" USING btree ("user_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_ahoy_events_on_visit_id" ON "ahoy_events" USING btree ("visit_id")
+  [1m[36m (3.2ms)[0m  [1mDROP TABLE "annotations" CASCADE[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "annotations" ("id" serial primary key, "quote" character varying, "ranges" text, "text" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "user_id" integer, "legislation_id" integer) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_annotations_on_legislation_id" ON "annotations" USING btree ("legislation_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_annotations_on_user_id" ON "annotations" USING btree ("user_id")
+  [1m[36m (2.6ms)[0m  [1mDROP TABLE "banners" CASCADE[0m
+  [1m[35m (4.7ms)[0m  CREATE TABLE "banners" ("id" serial primary key, "title" character varying(80), "description" character varying, "target_url" character varying, "style" character varying, "image" character varying, "post_started_at" date, "post_ended_at" date, "hidden_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.9ms)[0m  [1mCREATE  INDEX  "index_banners_on_hidden_at" ON "banners" USING btree ("hidden_at")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "budget_ballot_lines" CASCADE
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "budget_ballot_lines" ("id" serial primary key, "ballot_id" integer, "investment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "budget_id" integer, "group_id" integer, "heading_id" integer) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_budget_ballot_lines_on_ballot_id" ON "budget_ballot_lines" USING btree ("ballot_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_budget_ballot_lines_on_investment_id" ON "budget_ballot_lines" USING btree ("investment_id")[0m
+  [1m[35m (1.5ms)[0m  DROP TABLE "budget_ballots" CASCADE
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "budget_ballots" ("id" serial primary key, "user_id" integer, "budget_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "budget_groups" CASCADE
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "budget_groups" ("id" serial primary key, "budget_id" integer, "name" character varying(50)) [0m
+  [1m[35m (2.2ms)[0m  CREATE  INDEX  "index_budget_groups_on_budget_id" ON "budget_groups" USING btree ("budget_id")
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "budget_headings" CASCADE[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "budget_headings" ("id" serial primary key, "group_id" integer, "name" character varying(50), "price" bigint) 
+  [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_budget_headings_on_group_id" ON "budget_headings" USING btree ("group_id")[0m
+  [1m[35m (3.2ms)[0m  DROP TABLE "budget_investments" CASCADE
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "budget_investments" ("id" serial primary key, "author_id" integer, "administrator_id" integer, "title" character varying, "description" text, "external_url" character varying, "price" bigint, "feasibility" character varying(15) DEFAULT 'undecided', "price_explanation" text, "unfeasibility_explanation" text, "internal_comments" text, "valuation_finished" boolean DEFAULT 'f', "valuator_assignments_count" integer DEFAULT 0, "price_first_year" bigint, "duration" character varying, "hidden_at" timestamp, "cached_votes_up" integer DEFAULT 0, "comments_count" integer DEFAULT 0, "confidence_score" integer DEFAULT 0 NOT NULL, "physical_votes" integer DEFAULT 0, "tsv" tsvector, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "heading_id" integer, "responsible_name" character varying, "budget_id" integer, "group_id" integer, "selected" boolean DEFAULT 'f', "location" character varying, "organization_name" character varying, "unfeasible_email_sent_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_budget_investments_on_administrator_id" ON "budget_investments" USING btree ("administrator_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_budget_investments_on_author_id" ON "budget_investments" USING btree ("author_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_budget_investments_on_heading_id" ON "budget_investments" USING btree ("heading_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_budget_investments_on_tsv" ON "budget_investments" USING gin ("tsv")[0m
+  [1m[35m (2.8ms)[0m  DROP TABLE "budget_valuator_assignments" CASCADE
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "budget_valuator_assignments" ("id" serial primary key, "valuator_id" integer, "investment_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_budget_valuator_assignments_on_investment_id" ON "budget_valuator_assignments" USING btree ("investment_id")
+  [1m[36m (1.9ms)[0m  [1mDROP TABLE "budgets" CASCADE[0m
+  [1m[35m (5.2ms)[0m  CREATE TABLE "budgets" ("id" serial primary key, "name" character varying(30), "currency_symbol" character varying(10), "phase" character varying(40) DEFAULT 'accepting', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "description_accepting" text, "description_reviewing" text, "description_selecting" text, "description_valuating" text, "description_balloting" text, "description_reviewing_ballots" text, "description_finished" text) 
+  [1m[36m (1.8ms)[0m  [1mDROP TABLE "campaigns" CASCADE[0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "campaigns" ("id" serial primary key, "name" character varying, "track_id" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.8ms)[0m  [1mDROP TABLE "comments" CASCADE[0m
+  [1m[35m (6.2ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "commentable_id" integer, "commentable_type" character varying, "body" text, "subject" character varying, "user_id" integer NOT NULL, "created_at" timestamp, "updated_at" timestamp, "hidden_at" timestamp, "flags_count" integer DEFAULT 0, "ignored_flag_at" timestamp, "moderator_id" integer, "administrator_id" integer, "cached_votes_total" integer DEFAULT 0, "cached_votes_up" integer DEFAULT 0, "cached_votes_down" integer DEFAULT 0, "confirmed_hide_at" timestamp, "ancestry" character varying, "confidence_score" integer DEFAULT 0 NOT NULL) 
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX  "index_comments_on_ancestry" ON "comments" USING btree ("ancestry")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_comments_on_cached_votes_down" ON "comments" USING btree ("cached_votes_down")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_comments_on_cached_votes_total" ON "comments" USING btree ("cached_votes_total")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_comments_on_cached_votes_up" ON "comments" USING btree ("cached_votes_up")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_comments_on_commentable_id_and_commentable_type" ON "comments" USING btree ("commentable_id", "commentable_type")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_comments_on_hidden_at" ON "comments" USING btree ("hidden_at")
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_comments_on_user_id" ON "comments" USING btree ("user_id")[0m
+  [1m[35m (4.4ms)[0m  DROP TABLE "debates" CASCADE
+  [1m[36m (6.2ms)[0m  [1mCREATE TABLE "debates" ("id" serial primary key, "title" character varying(80), "description" text, "author_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "visit_id" character varying, "hidden_at" timestamp, "flags_count" integer DEFAULT 0, "cached_votes_total" integer DEFAULT 0, "cached_votes_up" integer DEFAULT 0, "cached_votes_down" integer DEFAULT 0, "ignored_flag_at" timestamp, "comments_count" integer DEFAULT 0, "confirmed_hide_at" timestamp, "cached_anonymous_votes_total" integer DEFAULT 0, "cached_votes_score" integer DEFAULT 0, "hot_score" bigint DEFAULT 0, "confidence_score" integer DEFAULT 0, "geozone_id" integer, "tsv" tsvector, "featured_at" timestamp) [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_debates_on_author_id_and_hidden_at" ON "debates" USING btree ("author_id", "hidden_at")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_debates_on_author_id" ON "debates" USING btree ("author_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_debates_on_cached_votes_down" ON "debates" USING btree ("cached_votes_down")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_debates_on_cached_votes_score" ON "debates" USING btree ("cached_votes_score")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_debates_on_cached_votes_total" ON "debates" USING btree ("cached_votes_total")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_debates_on_cached_votes_up" ON "debates" USING btree ("cached_votes_up")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_debates_on_confidence_score" ON "debates" USING btree ("confidence_score")
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_debates_on_geozone_id" ON "debates" USING btree ("geozone_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_debates_on_hidden_at" ON "debates" USING btree ("hidden_at")
+  [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_debates_on_hot_score" ON "debates" USING btree ("hot_score")[0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_debates_on_title" ON "debates" USING btree ("title")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_debates_on_tsv" ON "debates" USING gin ("tsv")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "delayed_jobs" CASCADE
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" serial primary key, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" timestamp, "locked_at" timestamp, "failed_at" timestamp, "locked_by" character varying, "queue" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "delayed_jobs_priority" ON "delayed_jobs" USING btree ("priority", "run_at")
+  [1m[36m (2.5ms)[0m  [1mDROP TABLE "direct_messages" CASCADE[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "direct_messages" ("id" serial primary key, "sender_id" integer, "receiver_id" integer, "title" character varying, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.4ms)[0m  [1mDROP TABLE "failed_census_calls" CASCADE[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "failed_census_calls" ("id" serial primary key, "user_id" integer, "document_number" character varying, "document_type" character varying, "date_of_birth" date, "postal_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "district_code" character varying, "poll_officer_id" integer, "year_of_birth" integer) 
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX  "index_failed_census_calls_on_user_id" ON "failed_census_calls" USING btree ("user_id")[0m
+  [1m[35m (2.9ms)[0m  DROP TABLE "flags" CASCADE
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "flags" ("id" serial primary key, "user_id" integer, "flaggable_type" character varying, "flaggable_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_flags_on_flaggable_type_and_flaggable_id" ON "flags" USING btree ("flaggable_type", "flaggable_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "access_inappropiate_flags" ON "flags" USING btree ("user_id", "flaggable_type", "flaggable_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_flags_on_user_id" ON "flags" USING btree ("user_id")
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "geozones" CASCADE[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "geozones" ("id" serial primary key, "name" character varying, "html_map_coordinates" character varying, "external_code" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "census_code" character varying) 
+  [1m[36m (3.1ms)[0m  [1mDROP TABLE "geozones_polls" CASCADE[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "geozones_polls" ("id" serial primary key, "geozone_id" integer, "poll_id" integer) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_geozones_polls_on_geozone_id" ON "geozones_polls" USING btree ("geozone_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_geozones_polls_on_poll_id" ON "geozones_polls" USING btree ("poll_id")
+  [1m[36m (3.3ms)[0m  [1mDROP TABLE "identities" CASCADE[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "identities" ("id" serial primary key, "user_id" integer, "provider" character varying, "uid" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_identities_on_user_id" ON "identities" USING btree ("user_id")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "legislations" CASCADE
+  [1m[36m (4.4ms)[0m  [1mCREATE TABLE "legislations" ("id" serial primary key, "title" character varying, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.4ms)[0m  DROP TABLE "locks" CASCADE
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "locks" ("id" serial primary key, "user_id" integer, "tries" integer DEFAULT 0, "locked_until" timestamp DEFAULT '2000-01-01 00:01:01' NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_locks_on_user_id" ON "locks" USING btree ("user_id")
+  [1m[36m (2.4ms)[0m  [1mDROP TABLE "managers" CASCADE[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "managers" ("id" serial primary key, "user_id" integer) 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_managers_on_user_id" ON "managers" USING btree ("user_id")[0m
+  [1m[35m (2.6ms)[0m  DROP TABLE "moderators" CASCADE
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "moderators" ("id" serial primary key, "user_id" integer) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_moderators_on_user_id" ON "moderators" USING btree ("user_id")
+  [1m[36m (3.4ms)[0m  [1mDROP TABLE "notifications" CASCADE[0m
+  [1m[35m (4.7ms)[0m  CREATE TABLE "notifications" ("id" serial primary key, "user_id" integer, "notifiable_id" integer, "notifiable_type" character varying, "counter" integer DEFAULT 1, "emailed_at" timestamp) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications" USING btree ("user_id")[0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "organizations" CASCADE
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "organizations" ("id" serial primary key, "user_id" integer, "name" character varying(60), "verified_at" timestamp, "rejected_at" timestamp, "responsible_name" character varying(60)) [0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_organizations_on_user_id" ON "organizations" USING btree ("user_id")
+  [1m[36m (3.0ms)[0m  [1mDROP TABLE "poll_answers" CASCADE[0m
+  [1m[35m (4.8ms)[0m  CREATE TABLE "poll_answers" ("id" serial primary key, "question_id" integer, "author_id" integer, "answer" character varying, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (2.2ms)[0m  [1mCREATE  INDEX  "index_poll_answers_on_author_id" ON "poll_answers" USING btree ("author_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_poll_answers_on_question_id_and_answer" ON "poll_answers" USING btree ("question_id", "answer")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_poll_answers_on_question_id" ON "poll_answers" USING btree ("question_id")[0m
+  [1m[35m (3.5ms)[0m  DROP TABLE "poll_booth_assignments" CASCADE
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "poll_booth_assignments" ("id" serial primary key, "booth_id" integer, "poll_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_poll_booth_assignments_on_booth_id" ON "poll_booth_assignments" USING btree ("booth_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_poll_booth_assignments_on_poll_id" ON "poll_booth_assignments" USING btree ("poll_id")[0m
+  [1m[35m (2.3ms)[0m  DROP TABLE "poll_booths" CASCADE
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "poll_booths" ("id" serial primary key, "name" character varying, "location" character varying) [0m
+  [1m[35m (2.6ms)[0m  DROP TABLE "poll_final_recounts" CASCADE
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "poll_final_recounts" ("id" serial primary key, "booth_assignment_id" integer, "officer_assignment_id" integer, "count" integer, "count_log" text DEFAULT '', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "officer_assignment_id_log" text DEFAULT '', "date" date NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_poll_final_recounts_on_booth_assignment_id" ON "poll_final_recounts" USING btree ("booth_assignment_id")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_poll_final_recounts_on_officer_assignment_id" ON "poll_final_recounts" USING btree ("officer_assignment_id")[0m
+  [1m[35m (2.4ms)[0m  DROP TABLE "poll_null_results" CASCADE
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "poll_null_results" ("id" serial primary key, "author_id" integer, "amount" integer, "origin" character varying, "date" date, "booth_assignment_id" integer, "officer_assignment_id" integer, "amount_log" text DEFAULT '', "officer_assignment_id_log" text DEFAULT '', "author_id_log" text DEFAULT '') [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_poll_null_results_on_booth_assignment_id" ON "poll_null_results" USING btree ("booth_assignment_id")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_poll_null_results_on_officer_assignment_id" ON "poll_null_results" USING btree ("officer_assignment_id")[0m
+  [1m[35m (3.8ms)[0m  DROP TABLE "poll_officer_assignments" CASCADE
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "poll_officer_assignments" ("id" serial primary key, "booth_assignment_id" integer, "officer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "date" date NOT NULL, "final" boolean DEFAULT 'f', "user_data_log" character varying DEFAULT '') [0m
+  [1m[35m (1.5ms)[0m  CREATE  INDEX  "index_poll_officer_assignments_on_booth_assignment_id" ON "poll_officer_assignments" USING btree ("booth_assignment_id")
+  [1m[36m (1.9ms)[0m  [1mCREATE  INDEX  "index_poll_officer_assignments_on_officer_id_and_date" ON "poll_officer_assignments" USING btree ("officer_id", "date")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_poll_officer_assignments_on_officer_id" ON "poll_officer_assignments" USING btree ("officer_id")
+  [1m[36m (1.5ms)[0m  [1mDROP TABLE "poll_officers" CASCADE[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "poll_officers" ("id" serial primary key, "user_id" integer, "failed_census_calls_count" integer DEFAULT 0) 
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_poll_officers_on_user_id" ON "poll_officers" USING btree ("user_id")[0m
+  [1m[35m (3.6ms)[0m  DROP TABLE "poll_partial_results" CASCADE
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "poll_partial_results" ("id" serial primary key, "question_id" integer, "author_id" integer, "answer" character varying, "amount" integer, "origin" character varying, "date" date, "booth_assignment_id" integer, "officer_assignment_id" integer, "amount_log" text DEFAULT '', "officer_assignment_id_log" text DEFAULT '', "author_id_log" text DEFAULT '') [0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_poll_partial_results_on_answer" ON "poll_partial_results" USING btree ("answer")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_poll_partial_results_on_author_id" ON "poll_partial_results" USING btree ("author_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_poll_partial_results_on_booth_assignment_id_and_date" ON "poll_partial_results" USING btree ("booth_assignment_id", "date")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_poll_partial_results_on_origin" ON "poll_partial_results" USING btree ("origin")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_poll_partial_results_on_question_id" ON "poll_partial_results" USING btree ("question_id")
+  [1m[36m (2.8ms)[0m  [1mDROP TABLE "poll_questions" CASCADE[0m
+  [1m[35m (5.1ms)[0m  CREATE TABLE "poll_questions" ("id" serial primary key, "proposal_id" integer, "poll_id" integer, "author_id" integer, "author_visible_name" character varying, "title" character varying, "valid_answers" character varying, "description" text, "comments_count" integer, "hidden_at" timestamp, "created_at" timestamp, "updated_at" timestamp, "tsv" tsvector) 
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_poll_questions_on_author_id" ON "poll_questions" USING btree ("author_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_poll_questions_on_poll_id" ON "poll_questions" USING btree ("poll_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_poll_questions_on_proposal_id" ON "poll_questions" USING btree ("proposal_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_poll_questions_on_tsv" ON "poll_questions" USING gin ("tsv")
+  [1m[36m (2.2ms)[0m  [1mDROP TABLE "poll_recounts" CASCADE[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "poll_recounts" ("id" serial primary key, "booth_assignment_id" integer, "officer_assignment_id" integer, "count" integer, "count_log" text DEFAULT '', "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "date" date NOT NULL, "officer_assignment_id_log" text DEFAULT '') 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_poll_recounts_on_booth_assignment_id" ON "poll_recounts" USING btree ("booth_assignment_id")[0m
+  [1m[35m (1.8ms)[0m  CREATE  INDEX  "index_poll_recounts_on_officer_assignment_id" ON "poll_recounts" USING btree ("officer_assignment_id")
+  [1m[36m (3.8ms)[0m  [1mDROP TABLE "poll_voters" CASCADE[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "poll_voters" ("id" serial primary key, "document_number" character varying, "document_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "poll_id" integer NOT NULL, "booth_assignment_id" integer, "age" integer, "gender" character varying, "geozone_id" integer, "answer_id" integer, "officer_assignment_id" integer, "user_id" integer) 
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_poll_voters_on_booth_assignment_id" ON "poll_voters" USING btree ("booth_assignment_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_poll_voters_on_document_number" ON "poll_voters" USING btree ("document_number")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_poll_voters_on_officer_assignment_id" ON "poll_voters" USING btree ("officer_assignment_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "doc_by_poll" ON "poll_voters" USING btree ("poll_id", "document_number", "document_type")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_poll_voters_on_poll_id" ON "poll_voters" USING btree ("poll_id")[0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_poll_voters_on_user_id" ON "poll_voters" USING btree ("user_id")
+  [1m[36m (2.5ms)[0m  [1mDROP TABLE "poll_white_results" CASCADE[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "poll_white_results" ("id" serial primary key, "author_id" integer, "amount" integer, "origin" character varying, "date" date, "booth_assignment_id" integer, "officer_assignment_id" integer, "amount_log" text DEFAULT '', "officer_assignment_id_log" text DEFAULT '', "author_id_log" text DEFAULT '') 
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_poll_white_results_on_booth_assignment_id" ON "poll_white_results" USING btree ("booth_assignment_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_poll_white_results_on_officer_assignment_id" ON "poll_white_results" USING btree ("officer_assignment_id")
+  [1m[36m (2.1ms)[0m  [1mDROP TABLE "polls" CASCADE[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "polls" ("id" serial primary key, "name" character varying, "starts_at" timestamp, "ends_at" timestamp, "published" boolean DEFAULT 'f', "geozone_restricted" boolean DEFAULT 'f') 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_polls_on_starts_at_and_ends_at" ON "polls" USING btree ("starts_at", "ends_at")[0m
+  [1m[35m (2.2ms)[0m  DROP TABLE "proposal_notifications" CASCADE
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "proposal_notifications" ("id" serial primary key, "title" character varying, "body" text, "author_id" integer, "proposal_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (4.2ms)[0m  DROP TABLE "proposals" CASCADE
+  [1m[36m (6.3ms)[0m  [1mCREATE TABLE "proposals" ("id" serial primary key, "title" character varying(80), "description" text, "question" character varying, "external_url" character varying, "author_id" integer, "hidden_at" timestamp, "flags_count" integer DEFAULT 0, "ignored_flag_at" timestamp, "cached_votes_up" integer DEFAULT 0, "comments_count" integer DEFAULT 0, "confirmed_hide_at" timestamp, "hot_score" bigint DEFAULT 0, "confidence_score" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "responsible_name" character varying(60), "summary" text, "video_url" character varying, "tsv" tsvector, "geozone_id" integer, "retired_at" timestamp, "retired_reason" character varying, "retired_explanation" text) [0m
+  [1m[35m (2.0ms)[0m  CREATE  INDEX  "index_proposals_on_author_id_and_hidden_at" ON "proposals" USING btree ("author_id", "hidden_at")
+  [1m[36m (1.5ms)[0m  [1mCREATE  INDEX  "index_proposals_on_author_id" ON "proposals" USING btree ("author_id")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_proposals_on_cached_votes_up" ON "proposals" USING btree ("cached_votes_up")
+  [1m[36m (12.3ms)[0m  [1mCREATE  INDEX  "index_proposals_on_confidence_score" ON "proposals" USING btree ("confidence_score")[0m
+  [1m[35m (11.6ms)[0m  CREATE  INDEX  "index_proposals_on_geozone_id" ON "proposals" USING btree ("geozone_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_proposals_on_hidden_at" ON "proposals" USING btree ("hidden_at")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_proposals_on_hot_score" ON "proposals" USING btree ("hot_score")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_proposals_on_question" ON "proposals" USING btree ("question")[0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_proposals_on_summary" ON "proposals" USING btree ("summary")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_proposals_on_title" ON "proposals" USING btree ("title")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_proposals_on_tsv" ON "proposals" USING gin ("tsv")
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "settings" CASCADE[0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "settings" ("id" serial primary key, "key" character varying, "value" character varying) 
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX  "index_settings_on_key" ON "settings" USING btree ("key")[0m
+  [1m[35m (2.0ms)[0m  DROP TABLE "signature_sheets" CASCADE
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "signature_sheets" ("id" serial primary key, "signable_id" integer, "signable_type" character varying, "document_numbers" text, "processed" boolean DEFAULT 'f', "author_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.9ms)[0m  DROP TABLE "signatures" CASCADE
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "signatures" ("id" serial primary key, "signature_sheet_id" integer, "user_id" integer, "document_number" character varying, "verified" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (2.5ms)[0m  DROP TABLE "spending_proposals" CASCADE
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "spending_proposals" ("id" serial primary key, "title" character varying, "description" text, "author_id" integer, "external_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "geozone_id" integer, "price" bigint, "feasible" boolean, "association_name" character varying, "price_explanation" text, "feasible_explanation" text, "internal_comments" text, "valuation_finished" boolean DEFAULT 'f', "explanations_log" text, "administrator_id" integer, "valuation_assignments_count" integer DEFAULT 0, "price_first_year" bigint, "time_scope" character varying, "unfeasible_email_sent_at" timestamp, "cached_votes_up" integer DEFAULT 0, "tsv" tsvector, "responsible_name" character varying(60), "physical_votes" integer DEFAULT 0) [0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_spending_proposals_on_author_id" ON "spending_proposals" USING btree ("author_id")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_spending_proposals_on_geozone_id" ON "spending_proposals" USING btree ("geozone_id")[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_spending_proposals_on_tsv" ON "spending_proposals" USING gin ("tsv")
+  [1m[36m (2.0ms)[0m  [1mDROP TABLE "taggings" CASCADE[0m
+  [1m[35m (3.9ms)[0m  CREATE TABLE "taggings" ("id" serial primary key, "tag_id" integer, "taggable_id" integer, "taggable_type" character varying, "tagger_id" integer, "tagger_type" character varying, "context" character varying(128), "created_at" timestamp) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_taggings_on_tag_id" ON "taggings" USING btree ("tag_id")[0m
+  [1m[35m (2.2ms)[0m  CREATE  INDEX  "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings" USING btree ("taggable_id", "taggable_type", "context")
+  [1m[36m (2.6ms)[0m  [1mDROP TABLE "tags" CASCADE[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "tags" ("id" serial primary key, "name" character varying(40), "taggings_count" integer DEFAULT 0, "featured" boolean DEFAULT 'f', "debates_count" integer DEFAULT 0, "proposals_count" integer DEFAULT 0, "spending_proposals_count" integer DEFAULT 0, "kind" character varying, "budget/investments_count" integer DEFAULT 0) 
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_tags_on_debates_count" ON "tags" USING btree ("debates_count")[0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "index_tags_on_name" ON "tags" USING btree ("name")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_tags_on_proposals_count" ON "tags" USING btree ("proposals_count")[0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_tags_on_spending_proposals_count" ON "tags" USING btree ("spending_proposals_count")
+  [1m[36m (1.7ms)[0m  [1mDROP TABLE "tolk_locales" CASCADE[0m
+  [1m[35m (3.3ms)[0m  CREATE TABLE "tolk_locales" ("id" serial primary key, "name" character varying, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "index_tolk_locales_on_name" ON "tolk_locales" USING btree ("name")[0m
+  [1m[35m (1.6ms)[0m  DROP TABLE "tolk_phrases" CASCADE
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "tolk_phrases" ("id" serial primary key, "key" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "tolk_translations" CASCADE
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "tolk_translations" ("id" serial primary key, "phrase_id" integer, "locale_id" integer, "text" text, "previous_text" text, "primary_updated" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "index_tolk_translations_on_phrase_id_and_locale_id" ON "tolk_translations" USING btree ("phrase_id", "locale_id")
+  [1m[36m (4.7ms)[0m  [1mDROP TABLE "users" CASCADE[0m
+  [1m[35m (5.8ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '', "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "email_on_comment" boolean DEFAULT 'f', "email_on_comment_reply" boolean DEFAULT 'f', "phone_number" character varying(30), "official_position" character varying, "official_level" integer DEFAULT 0, "hidden_at" timestamp, "sms_confirmation_code" character varying, "username" character varying(60), "document_number" character varying, "document_type" character varying, "residence_verified_at" timestamp, "email_verification_token" character varying, "verified_at" timestamp, "unconfirmed_phone" character varying, "confirmed_phone" character varying, "letter_requested_at" timestamp, "confirmed_hide_at" timestamp, "letter_verification_code" character varying, "failed_census_calls_count" integer DEFAULT 0, "level_two_verified_at" timestamp, "erase_reason" character varying, "erased_at" timestamp, "public_activity" boolean DEFAULT 't', "newsletter" boolean DEFAULT 't', "notifications_count" integer DEFAULT 0, "registering_with_oauth" boolean DEFAULT 'f', "locale" character varying, "oauth_email" character varying, "geozone_id" integer, "redeemable_code" character varying, "gender" character varying(10), "date_of_birth" timestamp, "email_on_proposal_notification" boolean DEFAULT 't', "email_digest" boolean DEFAULT 't', "email_on_direct_message" boolean DEFAULT 't', "official_position_badge" boolean DEFAULT 'f', "password_changed_at" timestamp DEFAULT '2016-11-23 10:59:20' NOT NULL, "created_from_signature" boolean DEFAULT 'f', "former_users_data_log" text DEFAULT '') 
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_confirmation_token" ON "users" USING btree ("confirmation_token")[0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_users_on_geozone_id" ON "users" USING btree ("geozone_id")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_users_on_hidden_at" ON "users" USING btree ("hidden_at")
+  [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_users_on_password_changed_at" ON "users" USING btree ("password_changed_at")[0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (1.4ms)[0m  [1mCREATE  INDEX  "index_users_on_username" ON "users" USING btree ("username")[0m
+  [1m[35m (1.4ms)[0m  DROP TABLE "valuation_assignments" CASCADE
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "valuation_assignments" ("id" serial primary key, "valuator_id" integer, "spending_proposal_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  DROP TABLE "valuators" CASCADE
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "valuators" ("id" serial primary key, "user_id" integer, "description" character varying, "spending_proposals_count" integer DEFAULT 0, "budget_investments_count" integer DEFAULT 0) [0m
+  [1m[35m (1.2ms)[0m  CREATE  INDEX  "index_valuators_on_user_id" ON "valuators" USING btree ("user_id")
+  [1m[36m (2.1ms)[0m  [1mDROP TABLE "verified_users" CASCADE[0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "verified_users" ("id" serial primary key, "document_number" character varying, "document_type" character varying, "phone" character varying, "email" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE  INDEX  "index_verified_users_on_document_number" ON "verified_users" USING btree ("document_number")[0m
+  [1m[35m (1.4ms)[0m  CREATE  INDEX  "index_verified_users_on_email" ON "verified_users" USING btree ("email")
+  [1m[36m (1.6ms)[0m  [1mCREATE  INDEX  "index_verified_users_on_phone" ON "verified_users" USING btree ("phone")[0m
+  [1m[35m (1.7ms)[0m  DROP TABLE "visits" CASCADE
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "visits" ("id" uuid PRIMARY KEY , "visitor_id" uuid, "ip" character varying, "user_agent" text, "referrer" text, "landing_page" text, "user_id" integer, "referring_domain" character varying, "search_keyword" character varying, "browser" character varying, "os" character varying, "device_type" character varying, "screen_height" integer, "screen_width" integer, "country" character varying, "region" character varying, "city" character varying, "postal_code" character varying, "latitude" decimal, "longitude" decimal, "utm_source" character varying, "utm_medium" character varying, "utm_term" character varying, "utm_content" character varying, "utm_campaign" character varying, "started_at" timestamp) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_visits_on_started_at" ON "visits" USING btree ("started_at")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_visits_on_user_id" ON "visits" USING btree ("user_id")[0m
+  [1m[35m (2.1ms)[0m  DROP TABLE "votes" CASCADE
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "votable_id" integer, "votable_type" character varying, "voter_id" integer, "voter_type" character varying, "vote_flag" boolean, "vote_scope" character varying, "vote_weight" integer, "created_at" timestamp, "updated_at" timestamp, "signature_id" integer) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_votes_on_signature_id" ON "votes" USING btree ("signature_id")
+  [1m[36m (1.3ms)[0m  [1mCREATE  INDEX  "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes" USING btree ("votable_id", "votable_type", "vote_scope")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes" USING btree ("voter_id", "voter_type", "vote_scope")
+  [1m[36m (2.4ms)[0m  [1mALTER TABLE "administrators" ADD CONSTRAINT "fk_rails_2733f5ea0b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  ALTER TABLE "annotations" ADD CONSTRAINT "fk_rails_ac462fba15"
+FOREIGN KEY ("legislation_id")
+  REFERENCES "legislations" ("id")
+
+  [1m[36m (1.9ms)[0m  [1mALTER TABLE "annotations" ADD CONSTRAINT "fk_rails_4043df79bf"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "failed_census_calls" ADD CONSTRAINT "fk_rails_95a29ebd75"
+FOREIGN KEY ("poll_officer_id")
+  REFERENCES "poll_officers" ("id")
+
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "failed_census_calls" ADD CONSTRAINT "fk_rails_9bc6624d99"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "flags" ADD CONSTRAINT "fk_rails_d7842de637"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "geozones_polls" ADD CONSTRAINT "fk_rails_a39246f6f0"
+FOREIGN KEY ("geozone_id")
+  REFERENCES "geozones" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "geozones_polls" ADD CONSTRAINT "fk_rails_1a75a07c27"
+FOREIGN KEY ("poll_id")
+  REFERENCES "polls" ("id")
+
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "identities" ADD CONSTRAINT "fk_rails_5373344100"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.5ms)[0m  ALTER TABLE "locks" ADD CONSTRAINT "fk_rails_426f571216"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (1.6ms)[0m  [1mALTER TABLE "managers" ADD CONSTRAINT "fk_rails_1306270b4d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "moderators" ADD CONSTRAINT "fk_rails_e69979a229"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "notifications" ADD CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "organizations" ADD CONSTRAINT "fk_rails_7b93e0061c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (1.9ms)[0m  [1mALTER TABLE "poll_answers" ADD CONSTRAINT "fk_rails_0504e701a6"
+FOREIGN KEY ("question_id")
+  REFERENCES "poll_questions" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "poll_booth_assignments" ADD CONSTRAINT "fk_rails_408497a0c6"
+FOREIGN KEY ("poll_id")
+  REFERENCES "polls" ("id")
+
+  [1m[36m (2.3ms)[0m  [1mALTER TABLE "poll_final_recounts" ADD CONSTRAINT "fk_rails_3185993e47"
+FOREIGN KEY ("booth_assignment_id")
+  REFERENCES "poll_booth_assignments" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "poll_final_recounts" ADD CONSTRAINT "fk_rails_a8f7d7f5c4"
+FOREIGN KEY ("officer_assignment_id")
+  REFERENCES "poll_officer_assignments" ("id")
+
+  [1m[36m (2.1ms)[0m  [1mALTER TABLE "poll_null_results" ADD CONSTRAINT "fk_rails_4a2598368d"
+FOREIGN KEY ("booth_assignment_id")
+  REFERENCES "poll_booth_assignments" ("id")
+[0m
+  [1m[35m (1.3ms)[0m  ALTER TABLE "poll_null_results" ADD CONSTRAINT "fk_rails_c5c6bbae5e"
+FOREIGN KEY ("officer_assignment_id")
+  REFERENCES "poll_officer_assignments" ("id")
+
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "poll_officer_assignments" ADD CONSTRAINT "fk_rails_516a3f6f23"
+FOREIGN KEY ("booth_assignment_id")
+  REFERENCES "poll_booth_assignments" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  ALTER TABLE "poll_partial_results" ADD CONSTRAINT "fk_rails_5801fb2778"
+FOREIGN KEY ("booth_assignment_id")
+  REFERENCES "poll_booth_assignments" ("id")
+
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "poll_partial_results" ADD CONSTRAINT "fk_rails_7bdf861408"
+FOREIGN KEY ("officer_assignment_id")
+  REFERENCES "poll_officer_assignments" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "poll_partial_results" ADD CONSTRAINT "fk_rails_eac53449bb"
+FOREIGN KEY ("question_id")
+  REFERENCES "poll_questions" ("id")
+
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "poll_partial_results" ADD CONSTRAINT "fk_rails_e02a2b37a7"
+FOREIGN KEY ("author_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "poll_questions" ADD CONSTRAINT "fk_rails_9760352283"
+FOREIGN KEY ("poll_id")
+  REFERENCES "polls" ("id")
+
+  [1m[36m (2.1ms)[0m  [1mALTER TABLE "poll_questions" ADD CONSTRAINT "fk_rails_66d167f482"
+FOREIGN KEY ("proposal_id")
+  REFERENCES "proposals" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "poll_questions" ADD CONSTRAINT "fk_rails_15391c3bf3"
+FOREIGN KEY ("author_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (1.5ms)[0m  [1mALTER TABLE "poll_recounts" ADD CONSTRAINT "fk_rails_30e1999036"
+FOREIGN KEY ("booth_assignment_id")
+  REFERENCES "poll_booth_assignments" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "poll_recounts" ADD CONSTRAINT "fk_rails_30d70775f9"
+FOREIGN KEY ("officer_assignment_id")
+  REFERENCES "poll_officer_assignments" ("id")
+
+  [1m[36m (1.9ms)[0m  [1mALTER TABLE "poll_voters" ADD CONSTRAINT "fk_rails_0f4193386a"
+FOREIGN KEY ("poll_id")
+  REFERENCES "polls" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  ALTER TABLE "poll_white_results" ADD CONSTRAINT "fk_rails_0278263567"
+FOREIGN KEY ("booth_assignment_id")
+  REFERENCES "poll_booth_assignments" ("id")
+
+  [1m[36m (1.4ms)[0m  [1mALTER TABLE "poll_white_results" ADD CONSTRAINT "fk_rails_fb2d0a29bd"
+FOREIGN KEY ("officer_assignment_id")
+  REFERENCES "poll_officer_assignments" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  ALTER TABLE "users" ADD CONSTRAINT "fk_rails_a51811a866"
+FOREIGN KEY ("geozone_id")
+  REFERENCES "geozones" ("id")
+
+  [1m[36m (1.7ms)[0m  [1mALTER TABLE "valuators" ADD CONSTRAINT "fk_rails_114bdf6c0a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "administrators"
+  [1m[36mSetting Load (0.6ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "official_level_1_name"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'official_level_1_name' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "official_level_1_name"], ["value", "Empleados públicos"]]
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.4ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "official_level_2_name"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.5ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'official_level_2_name' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "official_level_2_name"], ["value", "Organización Municipal"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mSetting Load (0.4ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "official_level_3_name"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'official_level_3_name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "official_level_3_name"], ["value", "Directores generales"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.3ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "official_level_4_name"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'official_level_4_name' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "official_level_4_name"], ["value", "Concejales"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mSetting Load (0.3ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "official_level_5_name"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'official_level_5_name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "official_level_5_name"], ["value", "Alcaldesa"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.3ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "max_ratio_anon_votes_on_debates"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'max_ratio_anon_votes_on_debates' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "max_ratio_anon_votes_on_debates"], ["value", "50"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "max_votes_for_debate_edit"]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'max_votes_for_debate_edit' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "max_votes_for_debate_edit"], ["value", "1000"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "max_votes_for_proposal_edit"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'max_votes_for_proposal_edit' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "max_votes_for_proposal_edit"], ["value", "1000"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.3ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "comments_body_max_length"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'comments_body_max_length' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "comments_body_max_length"], ["value", "1000"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "proposal_code_prefix"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.4ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'proposal_code_prefix' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "proposal_code_prefix"], ["value", "MAD"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "votes_for_proposal_success"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'votes_for_proposal_success' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "votes_for_proposal_success"], ["value", "53726"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.3ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "months_to_archive_proposals"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'months_to_archive_proposals' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "months_to_archive_proposals"], ["value", "12"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "email_domain_for_officials"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'email_domain_for_officials' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"  [["key", "email_domain_for_officials"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "per_page_code_head"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'per_page_code_head' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"[0m  [["key", "per_page_code_head"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "per_page_code_body"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'per_page_code_body' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"  [["key", "per_page_code_body"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "twitter_handle"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'twitter_handle' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"[0m  [["key", "twitter_handle"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "twitter_hashtag"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'twitter_hashtag' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"  [["key", "twitter_hashtag"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "facebook_handle"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'facebook_handle' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"[0m  [["key", "facebook_handle"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "youtube_handle"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'youtube_handle' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"  [["key", "youtube_handle"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "telegram_handle"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.4ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'telegram_handle' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"[0m  [["key", "telegram_handle"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "blog_url"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'blog_url' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"  [["key", "blog_url"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "url"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.4ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'url' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "url"], ["value", "http://example.com"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "org_name"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'org_name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "org_name"], ["value", "Consul"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "place_name"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'place_name' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "place_name"], ["value", "Consul-land"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.4ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "meta_description"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'meta_description' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"  [["key", "meta_description"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "meta_keywords"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'meta_keywords' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"[0m  [["key", "meta_keywords"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.4ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "feature.debates"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.debates' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "feature.debates"], ["value", "t"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "feature.spending_proposals"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.4ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.spending_proposals' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"[0m  [["key", "feature.spending_proposals"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "feature.polls"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.polls' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "feature.polls"], ["value", "t"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "feature.twitter_login"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.twitter_login' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "feature.twitter_login"], ["value", "t"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "feature.facebook_login"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.facebook_login' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "feature.facebook_login"], ["value", "t"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "feature.google_login"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.google_login' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "feature.google_login"], ["value", "t"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "feature.public_stats"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.public_stats' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "feature.public_stats"], ["value", "t"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "feature.budgets"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.budgets' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "feature.budgets"], ["value", "t"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "feature.signature_sheets"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.signature_sheets' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "feature.signature_sheets"], ["value", "t"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "feature.spending_proposal_features.voting_allowed"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'feature.spending_proposal_features.voting_allowed' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key") VALUES ($1) RETURNING "id"[0m  [["key", "feature.spending_proposal_features.voting_allowed"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "banner-style.banner-style-one"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'banner-style.banner-style-one' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "banner-style.banner-style-one"], ["value", "Banner style 1"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "banner-style.banner-style-two"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'banner-style.banner-style-two' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "banner-style.banner-style-two"], ["value", "Banner style 2"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "banner-style.banner-style-three"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'banner-style.banner-style-three' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "banner-style.banner-style-three"], ["value", "Banner style 3"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.3ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "banner-img.banner-img-one"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'banner-img.banner-img-one' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "banner-img.banner-img-one"], ["value", "Banner image 1"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "banner-img.banner-img-two"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'banner-img.banner-img-two' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "banner-img.banner-img-two"], ["value", "Banner image 2"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "banner-img.banner-img-three"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'banner-img.banner-img-three' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "banner-img.banner-img-three"], ["value", "Banner image 3"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.3ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "proposal_notification_minimum_interval_in_days"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'proposal_notification_minimum_interval_in_days' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "proposal_notification_minimum_interval_in_days"], ["value", "3"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.4ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "direct_message_max_per_day"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'direct_message_max_per_day' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "direct_message_max_per_day"], ["value", "3"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mSetting Load (0.3ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "mailer_from_name"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'mailer_from_name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "mailer_from_name"], ["value", "Consul"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "mailer_from_address"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.3ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'mailer_from_address' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "mailer_from_address"], ["value", "noreply@consul.dev"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mSetting Load (0.2ms)[0m  [1mSELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1[0m  [["key", "verification_offices_url"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSetting Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'verification_offices_url' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"  [["key", "verification_offices_url"], ["value", "http://oficinas-atencion-ciudadano.url/"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mSetting Load (0.2ms)[0m  SELECT  "settings".* FROM "settings" WHERE "settings"."key" = $1  ORDER BY "settings"."id" ASC LIMIT 1  [["key", "min_age_to_participate"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSetting Exists (0.4ms)[0m  SELECT  1 AS one FROM "settings" WHERE "settings"."key" = 'min_age_to_participate' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "settings" ("key", "value") VALUES ($1, $2) RETURNING "id"[0m  [["key", "min_age_to_participate"], ["value", "16"]]
+  [1m[35m (0.4ms)[0m  COMMIT
