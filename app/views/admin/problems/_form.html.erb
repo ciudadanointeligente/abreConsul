@@ -1,0 +1,72 @@
+<%= form_for [:admin, @problem] do |f| %>
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_area :brief %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_field :who %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_field :what %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_field :where%>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-12 column">
+      <%= f.text_area :restriction %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :budget %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :starts_at,
+                        value: @problem.starts_at.present? ? l(@problem.starts_at.to_date) : nil,
+                        class: "js-calendar-full" %>
+    </div>
+
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :ends_at,
+                        value: @problem.ends_at.present? ? l(@problem.ends_at.to_date) : nil,
+                        class: "js-calendar-full" %>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="small-12 medium-4 column">
+      <%= f.submit t("admin.problems.#{admin_submit_action(@problem)}.submit_button"),
+                   class: "button success expanded" %>
+    </div>
+  </div>
+
+<% end %>

@@ -56,7 +56,7 @@ Setting["blog_url"] = nil
 Setting["url"] = "http://example.com"
 
 # Consul installation's organization name
-Setting["org_name"] = "Consul"
+Setting["org_name"] = "Abre"
 
 # Consul installation place name (City, Country...)
 Setting["place_name"] = "Consul-land"

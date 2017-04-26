@@ -206,6 +206,8 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
 
+    resources :problems, only: [:index, :new, :create, :destroy, :edit, :update]
+
     scope module: :poll do
       resources :polls do
         get :search_questions, on: :member

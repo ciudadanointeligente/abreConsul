@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :problem do
+    title "MyString"
+    description "MyString"
+    what "MyString"
+    who "MyString"
+    where "MyString"
+    budget "MyString"
+  end
   sequence(:document_number) { |n| "#{n.to_s.rjust(8, '0')}X" }
 
   factory :user do

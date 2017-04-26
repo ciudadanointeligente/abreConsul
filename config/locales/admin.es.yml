@@ -14,6 +14,7 @@ es:
       unmark_featured: Quitar destacado
       edit: Editar
       configure: Configurar
+      destroy: Eliminar
     banners:
       index:
         title: Banners
@@ -173,6 +174,23 @@ es:
       index:
         back: Volver a
         title: Administración
+    problems:
+      index:
+        title: "Listado de Desafíos"
+        no_problems: "No hay desafíos agregados"
+        brief: "Resumen"
+        name: "Título"
+        create: "Crear desafío"
+      new:
+        title: "Nuevo desafío"
+        submit_button: "Crear desafío"
+      form:
+        title: "Título"
+      edit:
+        title: "Editar desafío"
+        submit_button: "Editar desafío"
+      delete:
+        submit_button: "Eliminar desafío"
     debates:
       index:
         filter: Filtro
@@ -215,12 +233,16 @@ es:
       spending_proposals: Propuestas de inversión
       stats: Estadísticas
       signature_sheets: Hojas de firmas
+      view_problems: Desafíos
+      create_problems: Crear desafío
+      view_problems: Desafíos
       title_categories: Categorías
       title_moderated_content: Contenido moderado
       title_budgets: Presupuestos
       title_polls: Votaciones
       title_profiles: Perfiles
       title_banners: Banners
+      title_problems: Desafíos
     moderators:
       index:
         title: Moderadores

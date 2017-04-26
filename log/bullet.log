@@ -469,3 +469,33 @@ Call stack
   /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_proposal.html.erb:10:in `_app_views_proposals__proposal_html_erb___408053996374298767_70250766795460'
   /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:60:in `_app_views_proposals_index_html_erb___2432804720048624650_70250751888260'
 
+2017-04-26 16:22:01[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_featured_proposal.html.erb:5:in `_app_views_proposals__featured_proposal_html_erb___100398133612352309_70214782704180'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:46:in `block in _app_views_proposals_index_html_erb__1724623719701213556_70214693915000'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:45:in `_app_views_proposals_index_html_erb__1724623719701213556_70214693915000'
+
+2017-04-26 16:22:32[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_featured_proposal.html.erb:5:in `_app_views_proposals__featured_proposal_html_erb___100398133612352309_70214782704180'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:46:in `block in _app_views_proposals_index_html_erb__1724623719701213556_70214693915000'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:45:in `_app_views_proposals_index_html_erb__1724623719701213556_70214693915000'
+
+2017-04-26 16:22:39[WARN] user: Dani
+GET http://localhost:3000/proposals
+USE eager loading detected
+  Proposal => [:author]
+  Add to your finder: :includes => [:author]
+Call stack
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/_featured_proposal.html.erb:5:in `_app_views_proposals__featured_proposal_html_erb___100398133612352309_70214782704180'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:46:in `block in _app_views_proposals_index_html_erb__1724623719701213556_70214693915000'
+  /Volumes/Data/CiudadanoInteligente/abre/app/views/proposals/index.html.erb:45:in `_app_views_proposals_index_html_erb__1724623719701213556_70214693915000'
+

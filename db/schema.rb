@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212123435) do
+ActiveRecord::Schema.define(version: 20170425201627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -554,6 +554,24 @@ ActiveRecord::Schema.define(version: 20170212123435) do
 
   add_index "polls", ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at", using: :btree
 
+  create_table "problems", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "what"
+    t.string   "who"
+    t.string   "where"
+    t.string   "budget"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "restriction"
+    t.string   "brief"
+    t.integer  "geozone_id"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+  end
+
+  add_index "problems", ["geozone_id"], name: "index_problems_on_geozone_id", using: :btree
+
   create_table "proposal_notifications", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -587,6 +605,7 @@ ActiveRecord::Schema.define(version: 20170212123435) do
     t.datetime "retired_at"
     t.string   "retired_reason"
     t.text     "retired_explanation"
+    t.integer  "problem_id"
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree
@@ -596,6 +615,7 @@ ActiveRecord::Schema.define(version: 20170212123435) do
   add_index "proposals", ["geozone_id"], name: "index_proposals_on_geozone_id", using: :btree
   add_index "proposals", ["hidden_at"], name: "index_proposals_on_hidden_at", using: :btree
   add_index "proposals", ["hot_score"], name: "index_proposals_on_hot_score", using: :btree
+  add_index "proposals", ["problem_id"], name: "index_proposals_on_problem_id", using: :btree
   add_index "proposals", ["question"], name: "index_proposals_on_question", using: :btree
   add_index "proposals", ["summary"], name: "index_proposals_on_summary", using: :btree
   add_index "proposals", ["title"], name: "index_proposals_on_title", using: :btree
@@ -889,6 +909,8 @@ ActiveRecord::Schema.define(version: 20170212123435) do
   add_foreign_key "poll_voters", "polls"
   add_foreign_key "poll_white_results", "poll_booth_assignments", column: "booth_assignment_id"
   add_foreign_key "poll_white_results", "poll_officer_assignments", column: "officer_assignment_id"
+  add_foreign_key "problems", "geozones"
+  add_foreign_key "proposals", "problems"
   add_foreign_key "users", "geozones"
   add_foreign_key "valuators", "users"
 end
