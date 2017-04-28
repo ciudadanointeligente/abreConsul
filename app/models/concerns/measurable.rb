@@ -19,6 +19,10 @@ module Measurable
       6000
     end
 
+    def brief_max_length
+      200
+    end
+
   end
 
 end

@@ -116,6 +116,7 @@ es:
         ends_at: Fecha límite
         budget: Presupuesto máximo
         restriction: Restricciones
+        geozone_restricted: "Restringida por zonas"
       poll/question:
         title: "Pregunta"
         valid_answers: "Posibles respuestas"

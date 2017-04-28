@@ -374,6 +374,7 @@ es:
     show:
       author_deleted: Usuario eliminado
       code: 'Código de la propuesta:'
+      problem_title: 'Problema que resuelve:'
       comments:
         one: 1 Comentario
         other: "%{count} Comentarios"

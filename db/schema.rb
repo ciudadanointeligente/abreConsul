@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425201627) do
+ActiveRecord::Schema.define(version: 20170428152223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -220,10 +220,10 @@ ActiveRecord::Schema.define(version: 20170425201627) do
     t.string   "visit_id"
     t.datetime "hidden_at"
     t.integer  "flags_count",                             default: 0
+    t.datetime "ignored_flag_at"
     t.integer  "cached_votes_total",                      default: 0
     t.integer  "cached_votes_up",                         default: 0
     t.integer  "cached_votes_down",                       default: 0
-    t.datetime "ignored_flag_at"
     t.integer  "comments_count",                          default: 0
     t.datetime "confirmed_hide_at"
     t.integer  "cached_anonymous_votes_total",            default: 0
@@ -317,6 +317,11 @@ ActiveRecord::Schema.define(version: 20170425201627) do
   add_index "geozones_polls", ["geozone_id"], name: "index_geozones_polls_on_geozone_id", using: :btree
   add_index "geozones_polls", ["poll_id"], name: "index_geozones_polls_on_poll_id", using: :btree
 
+  create_table "geozones_problems", id: false, force: :cascade do |t|
+    t.integer "problem_id", null: false
+    t.integer "geozone_id", null: false
+  end
+
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -337,7 +342,7 @@ ActiveRecord::Schema.define(version: 20170425201627) do
   create_table "locks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "tries",        default: 0
-    t.datetime "locked_until", default: '2000-01-01 00:01:01', null: false
+    t.datetime "locked_until", default: '2000-01-01 04:01:01', null: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
@@ -561,16 +566,14 @@ ActiveRecord::Schema.define(version: 20170425201627) do
     t.string   "who"
     t.string   "where"
     t.string   "budget"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "restriction"
     t.string   "brief"
-    t.integer  "geozone_id"
     t.datetime "starts_at"
     t.datetime "ends_at"
+    t.boolean  "geozone_restricted"
   end
-
-  add_index "problems", ["geozone_id"], name: "index_problems_on_geozone_id", using: :btree
 
   create_table "proposal_notifications", force: :cascade do |t|
     t.string   "title"
@@ -786,7 +789,7 @@ ActiveRecord::Schema.define(version: 20170425201627) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2016-11-23 10:59:20', null: false
+    t.datetime "password_changed_at",                       default: '2017-04-28 15:21:34', null: false
     t.boolean  "created_from_signature",                    default: false
     t.text     "former_users_data_log",                     default: ""
   end
@@ -909,7 +912,6 @@ ActiveRecord::Schema.define(version: 20170425201627) do
   add_foreign_key "poll_voters", "polls"
   add_foreign_key "poll_white_results", "poll_booth_assignments", column: "booth_assignment_id"
   add_foreign_key "poll_white_results", "poll_officer_assignments", column: "officer_assignment_id"
-  add_foreign_key "problems", "geozones"
   add_foreign_key "proposals", "problems"
   add_foreign_key "users", "geozones"
   add_foreign_key "valuators", "users"
