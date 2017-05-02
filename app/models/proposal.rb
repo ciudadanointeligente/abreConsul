@@ -19,6 +19,8 @@ class Proposal < ActiveRecord::Base
   has_many :proposal_notifications
   belongs_to :problem
 
+  accepts_nested_attributes_for :problem
+
   validates :title, presence: true
   validates :question, presence: true
   validates :summary, presence: true

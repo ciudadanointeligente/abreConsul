@@ -1576,3 +1576,461 @@ Did you mean?  @problem
 [2017-04-28 12:23:38 -0300 MBP-de-Daniela.home (3397)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
 [2017-04-28 12:23:41 -0300 MBP-de-Daniela.home (3397)] ERROR : Invalid license key, please contact support@newrelic.com
 [2017-04-28 12:23:41 -0300 MBP-de-Daniela.home (3397)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Environment: development
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : No known dispatcher detected.
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Application: Consul (Development)
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing Net instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:14:35 -0300 MBP-de-Daniela.home (4425)] INFO : Finished instrumentation
+[2017-04-28 13:14:58 -0300 MBP-de-Daniela.home (3397)] INFO : Starting Agent shutdown
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Environment: development
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : No known dispatcher detected.
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Application: Consul (Development)
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing Net instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:15:06 -0300 MBP-de-Daniela.home (4454)] INFO : Finished instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Environment: development
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : No known dispatcher detected.
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Application: Consul (Development)
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing Net instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:15:37 -0300 MBP-de-Daniela.home (4475)] INFO : Finished instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Environment: development
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : No known dispatcher detected.
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Application: Consul (Development)
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing Net instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:16:14 -0300 MBP-de-Daniela.home (4489)] INFO : Finished instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Environment: development
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Dispatcher: webrick
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Application: Consul (Development)
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing Net instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:17:14 -0300 MBP-de-Daniela.home (4503)] INFO : Finished instrumentation
+[2017-04-28 13:17:15 -0300 MBP-de-Daniela.home (4503)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-04-28 13:17:16 -0300 MBP-de-Daniela.home (4503)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-04-28 13:17:24 -0300 MBP-de-Daniela.home (4503)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-04-28 13:17:24 -0300 MBP-de-Daniela.home (4503)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Environment: development
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : No known dispatcher detected.
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Application: Consul (Development)
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing Net instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:25:40 -0300 MBP-de-Daniela.home (4592)] INFO : Finished instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Environment: development
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : No known dispatcher detected.
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Application: Consul (Development)
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing Net instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:27:36 -0300 MBP-de-Daniela.home (4609)] INFO : Finished instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Environment: development
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : No known dispatcher detected.
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Application: Consul (Development)
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing Net instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:30:29 -0300 MBP-de-Daniela.home (4636)] INFO : Finished instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Environment: development
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : No known dispatcher detected.
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Application: Consul (Development)
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing Net instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:31:39 -0300 MBP-de-Daniela.home (4652)] INFO : Finished instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Environment: development
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : No known dispatcher detected.
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Application: Consul (Development)
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing Net instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 13:33:20 -0300 MBP-de-Daniela.home (4670)] INFO : Finished instrumentation
+[2017-04-28 15:57:27 -0300 MBP-de-Daniela.home (4503)] INFO : Starting Agent shutdown
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : New Relic Agent Developer Mode enabled.
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Environment: development
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Dispatcher: webrick
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Application: Consul (Development)
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing ActiveJob instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing Net instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing Rails 4 Controller instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Installing Rails 4 view instrumentation
+[2017-04-28 16:01:42 -0300 MBP-de-Daniela.home (5685)] INFO : Finished instrumentation
+[2017-04-28 16:01:43 -0300 MBP-de-Daniela.home (5685)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-04-28 16:02:09 -0300 MBP-de-Daniela.home (5685)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-04-28 16:02:15 -0300 MBP-de-Daniela.home (5685)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-04-28 16:02:15 -0300 MBP-de-Daniela.home (5685)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-04-28 17:48:22 -0300 MBP-de-Daniela.home (5685)] INFO : Starting Agent shutdown
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Environment: development
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Dispatcher: webrick
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Application: Consul (Development)
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 09:56:49 -0300 MBP-de-Daniela.home (1365)] INFO : Installing Net instrumentation
+[2017-05-02 09:56:50 -0300 MBP-de-Daniela.home (1365)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 09:56:50 -0300 MBP-de-Daniela.home (1365)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 09:56:50 -0300 MBP-de-Daniela.home (1365)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 09:56:50 -0300 MBP-de-Daniela.home (1365)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 09:56:50 -0300 MBP-de-Daniela.home (1365)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 09:56:50 -0300 MBP-de-Daniela.home (1365)] INFO : Finished instrumentation
+[2017-05-02 09:56:51 -0300 MBP-de-Daniela.home (1365)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-05-02 09:56:56 -0300 MBP-de-Daniela.home (1365)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-05-02 09:56:58 -0300 MBP-de-Daniela.home (1365)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-05-02 09:56:58 -0300 MBP-de-Daniela.home (1365)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Environment: development
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : No known dispatcher detected.
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Application: Consul (Development)
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing Net instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 11:40:46 -0300 MBP-de-Daniela.home (2716)] INFO : Finished instrumentation
+[2017-05-02 11:41:01 -0300 MBP-de-Daniela.home (1365)] INFO : Starting Agent shutdown
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Environment: development
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Dispatcher: webrick
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Application: Consul (Development)
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing Net instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Finished instrumentation
+[2017-05-02 11:41:39 -0300 MBP-de-Daniela.home (2772)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-05-02 11:41:41 -0300 MBP-de-Daniela.home (2772)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-05-02 11:41:42 -0300 MBP-de-Daniela.home (2772)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-05-02 11:41:42 -0300 MBP-de-Daniela.home (2772)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Environment: development
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : No known dispatcher detected.
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Application: Consul (Development)
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing Net instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 11:42:13 -0300 MBP-de-Daniela.home (2791)] INFO : Finished instrumentation
+[2017-05-02 11:44:10 -0300 MBP-de-Daniela.home (2772)] INFO : Starting Agent shutdown
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Environment: development
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : No known dispatcher detected.
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Application: Consul (Development)
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing Net instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 11:44:50 -0300 MBP-de-Daniela.home (2875)] INFO : Finished instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Environment: development
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Dispatcher: webrick
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Application: Consul (Development)
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing Net instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 11:46:15 -0300 MBP-de-Daniela.home (2894)] INFO : Finished instrumentation
+[2017-05-02 11:46:16 -0300 MBP-de-Daniela.home (2894)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-05-02 11:46:17 -0300 MBP-de-Daniela.home (2894)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-05-02 11:46:19 -0300 MBP-de-Daniela.home (2894)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-05-02 11:46:19 -0300 MBP-de-Daniela.home (2894)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-05-02 15:02:31 -0300 MBP-de-Daniela.home (2894)] INFO : Starting Agent shutdown
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Environment: development
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : No known dispatcher detected.
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Application: Consul (Development)
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing Net instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 15:02:45 -0300 MBP-de-Daniela.home (4220)] INFO : Finished instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Environment: development
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : No known dispatcher detected.
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Application: Consul (Development)
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing Net instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 15:02:59 -0300 MBP-de-Daniela.home (4240)] INFO : Finished instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Environment: development
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Dispatcher: webrick
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Application: Consul (Development)
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing Net instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Finished instrumentation
+[2017-05-02 15:03:30 -0300 MBP-de-Daniela.home (4365)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-05-02 15:04:51 -0300 MBP-de-Daniela.home (4365)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-05-02 15:04:53 -0300 MBP-de-Daniela.home (4365)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-05-02 15:04:53 -0300 MBP-de-Daniela.home (4365)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-05-02 16:19:27 -0300 MBP-de-Daniela.home (4365)] INFO : Starting Agent shutdown
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] INFO : Environment: development
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] INFO : Dispatcher: webrick
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] INFO : Application: Consul (Development)
+[2017-05-02 16:20:32 -0300 MBP-de-Daniela.home (5181)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing Net instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Finished instrumentation
+[2017-05-02 16:20:33 -0300 MBP-de-Daniela.home (5181)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-05-02 16:20:46 -0300 MBP-de-Daniela.home (5181)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-05-02 16:20:47 -0300 MBP-de-Daniela.home (5181)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-05-02 16:20:47 -0300 MBP-de-Daniela.home (5181)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2017-05-02 16:24:34 -0300 MBP-de-Daniela.home (5181)] INFO : Starting Agent shutdown
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Starting the New Relic agent version 4.0.0.332 in "development" environment.
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Reading configuration from config/newrelic.yml (/Volumes/Data/CiudadanoInteligente/abre)
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : New Relic Agent Developer Mode enabled.
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Environment: development
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Dispatcher: webrick
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Application: Consul (Development)
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing ActiveJob instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing ActiveRecord 4 instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing Memcache instrumentation for dalli gem
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing Net instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing deferred Rack::Builder instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing Rack::Builder middleware instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing Rails 3+ middleware instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing Rails 4 Controller instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Installing Rails 4 view instrumentation
+[2017-05-02 16:25:00 -0300 MBP-de-Daniela.home (5237)] INFO : Finished instrumentation
+[2017-05-02 16:25:01 -0300 MBP-de-Daniela.home (5237)] INFO : Doing deferred dependency-detection before Rack startup
+[2017-05-02 16:25:02 -0300 MBP-de-Daniela.home (5237)] INFO : NewRelic::Agent::Samplers::DelayedJobSampler not available: No DJ worker present. Skipping DJ queue sampler
+[2017-05-02 16:25:03 -0300 MBP-de-Daniela.home (5237)] ERROR : Invalid license key, please contact support@newrelic.com
+[2017-05-02 16:25:03 -0300 MBP-de-Daniela.home (5237)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.

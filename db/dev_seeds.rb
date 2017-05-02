@@ -68,6 +68,21 @@ Geozone.create(name: "Peñalolen Alto", external_code: 35, census_code: 35)
 Geozone.create(name: "Peñalolen Nuevo", external_code: 36, census_code: 36)
 
 
+
+puts " ✅"
+print "Creating Problems"
+
+problem = Problem.create(title: "Mejoramiento sector la Capilla",
+  description: "La idea es levantar propuestas de mejoramiento de ...",
+  id: 3,
+  what: nil, who: "A todos lo vecinos que usan este sector, en partic...",
+  where: "Sector Norte de Peñalolen (límite con la Reuna)",
+  budget: "42000000",
+  restriction: nil,
+  brief: "Se busca mejorar la plaza que esta frente a La Capilla",
+  starts_at: "2017-05-28 22:00:00",
+  ends_at: "2017-06-24 22:00:00")
+
 puts " ✅"
 print "Creating Users"
 
@@ -181,25 +196,26 @@ ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "ca
 # end
 
 
-# puts " ✅"
-# print "Creating Proposals"
-#
-# tags = Faker::Lorem.words(25)
-# (1..30).each do |i|
-#   author = User.reorder("RANDOM()").first
-#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
-#   proposal = Proposal.create!(author: author,
-#                               title: Faker::Lorem.sentence(3).truncate(60),
-#                               question: Faker::Lorem.sentence(3) + "?",
-#                               summary: Faker::Lorem.sentence(3),
-#                               responsible_name: Faker::Name.name,
-#                               external_url: Faker::Internet.url,
-#                               description: description,
-#                               created_at: rand((Time.current - 1.week) .. Time.current),
-#                               tag_list: tags.sample(3).join(','),
-#                               geozone: Geozone.reorder("RANDOM()").first,
-#                               terms_of_service: "1")
-# end
+puts " ✅"
+print "Creating Proposals"
+
+tags = Faker::Lorem.words(25)
+(1..5).each do |i|
+  author = User.reorder("RANDOM()").first
+  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  proposal = Proposal.create!(author: author,
+                              title: Faker::Lorem.sentence(3).truncate(60),
+                              question: Faker::Lorem.sentence(3) + "?",
+                              summary: Faker::Lorem.sentence(3),
+                              responsible_name: Faker::Name.name,
+                              external_url: Faker::Internet.url,
+                              description: description,
+                              created_at: rand((Time.current - 1.week) .. Time.current),
+                              tag_list: tags.sample(3).join(','),
+                              geozone: Geozone.reorder("RANDOM()").first,
+                              terms_of_service: "1",
+                              problem: problem)
+end
 #
 # puts " ✅"
 # print "Creating Archived Proposals"
@@ -224,23 +240,23 @@ ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "ca
 # puts " ✅"
 # print "Creating Successful Proposals"
 #
-# tags = Faker::Lorem.words(25)
-# (1..10).each do |i|
-#   author = User.reorder("RANDOM()").first
-#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
-#   proposal = Proposal.create!(author: author,
-#                               title: Faker::Lorem.sentence(3).truncate(60),
-#                               question: Faker::Lorem.sentence(3) + "?",
-#                               summary: Faker::Lorem.sentence(3),
-#                               responsible_name: Faker::Name.name,
-#                               external_url: Faker::Internet.url,
-#                               description: description,
-#                               created_at: rand((Time.current - 1.week) .. Time.current),
-#                               tag_list: tags.sample(3).join(','),
-#                               geozone: Geozone.reorder("RANDOM()").first,
-#                               terms_of_service: "1",
-#                               cached_votes_up: Setting["votes_for_proposal_success"])
-# end
+tags = Faker::Lorem.words(25)
+(1..2).each do |i|
+  author = User.reorder("RANDOM()").first
+  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  proposal = Proposal.create!(author: author,
+                              title: Faker::Lorem.sentence(3).truncate(60),
+                              question: Faker::Lorem.sentence(3) + "?",
+                              summary: Faker::Lorem.sentence(3),
+                              responsible_name: Faker::Name.name,
+                              external_url: Faker::Internet.url,
+                              description: description,
+                              created_at: rand((Time.current - 1.week) .. Time.current),
+                              tag_list: tags.sample(3).join(','),
+                              geozone: Geozone.reorder("RANDOM()").first,
+                              terms_of_service: "1",
+                              cached_votes_up: Setting["votes_for_proposal_success"])
+end
 
 #
 # tags = ActsAsTaggableOn::Tag.where(kind: 'category')
@@ -478,7 +494,7 @@ ActsAsTaggableOn::Tag.create!(name:  "Medio Ambiente", featured: true, kind: "ca
 # puts " ✅"
 # print "Creating banners"
 
-Proposal.last(3).each do |proposal|
+Proposal.last(2).each do |proposal|
   title = Faker::Lorem.sentence(word_count = 3)
   description = Faker::Lorem.sentence(word_count = 12)
   banner = Banner.create!(title: title,
@@ -492,26 +508,26 @@ Proposal.last(3).each do |proposal|
                           post_ended_at:   rand((Time.current  - 1.day) .. (Time.current + 1.week)),
                           created_at: rand((Time.current - 1.week) .. Time.current))
 end
-#
-# puts " ✅"
-# print "Creating polls"
-#
-# puts " ✅"
-# print "Active Polls"
-# (1..3).each do |i|
-#   poll = Poll.create(name: "Active Poll #{i}",
-#                      starts_at: 1.month.ago,
-#                      ends_at:   1.month.from_now,
-#                      geozone_restricted: false)
-# end
-# (4..5).each do |i|
-#   poll = Poll.create(name: "Active Poll #{i}",
-#                      starts_at: 1.month.ago,
-#                      ends_at:   1.month.from_now,
-#                      geozone_restricted: true,
-#                      geozones: Geozone.reorder("RANDOM()").limit(3)
-#                     )
-# end
+
+puts " ✅"
+print "Creating polls"
+
+puts " ✅"
+print "Active Polls"
+(1..2).each do |i|
+  poll = Poll.create(name: "Active Poll #{i}",
+                     starts_at: 1.month.ago,
+                     ends_at:   1.month.from_now,
+                     geozone_restricted: false)
+end
+(3..4).each do |i|
+  poll = Poll.create(name: "Active Poll #{i}",
+                     starts_at: 1.month.ago,
+                     ends_at:   1.month.from_now,
+                     geozone_restricted: true,
+                     geozones: Geozone.reorder("RANDOM()").limit(3)
+                    )
+end
 #
 #
 #
@@ -529,21 +545,21 @@ end
 #                      starts_at: 2.months.ago,
 #                      ends_at:   1.months.ago)
 #
-# puts " ✅"
-# print "Creating Poll Questions"
-#
-# (1..50).each do |i|
-#   poll = Poll.reorder("RANDOM()").first
-#   author = User.reorder("RANDOM()").first
-#   description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
-#   open_at = rand(2.months.ago .. 2.months.from_now)
-#   question = Poll::Question.create!(author: author,
-#                                     title: Faker::Lorem.sentence(3).truncate(60),
-#                                     description: description,
-#                                     valid_answers: Faker::Lorem.words((2..7).to_a.sample).join(', '),
-#                                     poll: poll)
-# end
-#
+puts " ✅"
+print "Creating Poll Questions"
+
+(1..10).each do |i|
+  poll = Poll.reorder("RANDOM()").first
+  author = User.reorder("RANDOM()").first
+  description = "<p>#{Faker::Lorem.paragraphs.join('</p><p>')}</p>"
+  open_at = rand(2.months.ago .. 2.months.from_now)
+  question = Poll::Question.create!(author: author,
+                                    title: Faker::Lorem.sentence(3).truncate(60),
+                                    description: description,
+                                    valid_answers: Faker::Lorem.words((2..7).to_a.sample).join(', '),
+                                    poll: poll)
+end
+
 # puts " ✅"
 # print "Creating Poll Booths"
 # 30.times.each_with_index do |i|

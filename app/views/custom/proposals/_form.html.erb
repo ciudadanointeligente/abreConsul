@@ -3,13 +3,54 @@
 
   <div class="row">
 
-    <div class="small-12 medium-6 column">
+    <div id="select-problem" class="small-12 medium-6 column" >
       <%= f.label :problem_id,  t("proposals.form.proposal_problem") %>
-      <%= f.select :problem_id, Problem.all.collect {|p| [ p.title, p.id ] }, {include_blank: t("problems.form.blank"), label: false} %>
+      <%= f.select :problem_id, Problem.all.collect {|p| [ p.title, p.id ] }, {include_blank: t("problems.form.blank"), label: false},  {:onchange=> "jsProblemChanged()"} %>
     </div>
 
-    <div class="row">
 
+    <div class="small-12 column" id="problem-hidden">
+      <div class="panel callout radius">
+        <h5>Definir el problema</h5>
+        <%= f.fields_for :problem do |prob| %>
+          <div class="row">
+            <div class="small-12 medium-6 column">
+              <%= prob.text_field :title %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 medium-12 column">
+              <%= prob.text_area :brief %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 medium-12 column">
+              <%= prob.text_field :who %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 medium-12 column">
+              <%= prob.text_field :what %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 medium-12 column">
+              <%= prob.text_field :where%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 medium-12 column">
+              <%= prob.text_area :description %>
+            </div>
+          </div>
+         <% end %>
+      </div>
+    </div>
+
+    <div class="small-12 column" id="problem-display" style="display:none">
+      <div class="panel callout radius">
+        <h5>Problema a resolver</h5>
+      </div>
     </div>
 
     <div class="small-12 column">

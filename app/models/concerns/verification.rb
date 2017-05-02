@@ -12,6 +12,7 @@ module Verification
 
   def verification_email_sent?
     email_verification_token.present?
+    true
   end
 
   def verification_sms_sent?
@@ -27,7 +28,7 @@ module Verification
   end
 
   def sms_verified?
-    confirmed_phone.present?
+    # confirmed_phone.present?
   end
 
   def level_two_verified?

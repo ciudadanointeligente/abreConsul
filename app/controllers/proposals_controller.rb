@@ -25,6 +25,11 @@ class ProposalsController < ApplicationController
     redirect_to proposal_path(@proposal), status: :moved_permanently if request.path != proposal_path(@proposal)
   end
 
+  def new
+    @proposal = Proposal.new
+    @proposal.build_problem
+  end
+
   def index_customization
     discard_archived
     load_retired
@@ -61,7 +66,7 @@ class ProposalsController < ApplicationController
   private
 
     def proposal_params
-      params.require(:proposal).permit(:title, :question, :summary, :description, :external_url, :video_url, :responsible_name, :tag_list, :terms_of_service, :geozone_id, :problem_id)
+      params.require(:proposal).permit(:title, :question, :summary, :description, :external_url, :video_url, :responsible_name, :tag_list, :terms_of_service, :geozone_id, :problem_id, problem_attributes: [:id, :title, :brief, :who, :where, :what, :description])
     end
 
     def retired_params
