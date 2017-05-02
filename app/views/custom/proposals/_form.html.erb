@@ -5,7 +5,7 @@
 
     <div id="select-problem" class="small-12 medium-6 column" >
       <%= f.label :problem_id,  t("proposals.form.proposal_problem") %>
-      <%= f.select :problem_id, Problem.all.collect {|p| [ p.title, p.id ] }, {include_blank: t("problems.form.blank"), label: false},  {:onchange=> "jsProblemChanged()"} %>
+      <%= f.select :problem_id, valid_problems.collect {|p| [ p.title, p.id ] }, {include_blank: t("problems.form.blank"), label: false},  {:onchange=> "jsProblemChanged()"} %>
     </div>
 
 

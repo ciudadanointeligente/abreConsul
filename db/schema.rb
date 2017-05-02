@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428152223) do
+ActiveRecord::Schema.define(version: 20170502205642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -566,13 +566,14 @@ ActiveRecord::Schema.define(version: 20170428152223) do
     t.string   "who"
     t.string   "where"
     t.string   "budget"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "restriction"
     t.string   "brief"
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.boolean  "geozone_restricted"
+    t.boolean  "admin",              default: false
   end
 
   create_table "proposal_notifications", force: :cascade do |t|

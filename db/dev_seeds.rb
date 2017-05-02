@@ -80,7 +80,8 @@ problem = Problem.create(title: "Mejoramiento sector la Capilla",
   budget: "42000000",
   restriction: nil,
   brief: "Se busca mejorar la plaza que esta frente a La Capilla",
-  starts_at: "2017-05-28 22:00:00",
+  admin: true,
+  starts_at: "2017-03-28 22:00:00",
   ends_at: "2017-06-24 22:00:00")
 
 puts " ✅"
@@ -255,6 +256,7 @@ tags = Faker::Lorem.words(25)
                               tag_list: tags.sample(3).join(','),
                               geozone: Geozone.reorder("RANDOM()").first,
                               terms_of_service: "1",
+                              problem: problem,
                               cached_votes_up: Setting["votes_for_proposal_success"])
 end
 

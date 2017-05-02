@@ -31,9 +31,6 @@ class Admin::ProblemsController < Admin::BaseController
   end
 
   def destroy
-  end
-
-  def destroy
     if Problem.find(params[:id]).destroy
       redirect_to admin_problems_url, notice: t("flash.actions.destroy.problem")
     else
@@ -47,7 +44,7 @@ private
   end
 
   def problem_params
-    params.require(:problem).permit(:title, :brief, :description, :starts_at, :ends_at, :who, :where, :what, :budget, :restriction, :geozone_restricted, geozone_ids: [])
+    params.require(:problem).permit(:title, :brief, :description, :starts_at, :ends_at, :who, :where, :what, :budget, :restriction, :geozone_restricted, :admin, geozone_ids: [])
   end
 
 end
