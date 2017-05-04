@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get '/welcome', to: 'welcome#welcome'
   get '/cuentasegura', to: 'welcome#verification', as: :cuentasegura
 
+  resources :problems
+
   resources :debates do
     member do
       post :vote

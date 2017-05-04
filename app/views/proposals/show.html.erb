@@ -57,7 +57,7 @@
         </p>
         <p>
           <%= t("proposals.show.problem_title") %>
-          <strong><%= @proposal.problem.title %></strong>
+          <strong><%= link_to @proposal.problem.title, problem_path(@proposal.problem) %></strong>
         </p>
 
         <blockquote><%= @proposal.summary %></blockquote>
