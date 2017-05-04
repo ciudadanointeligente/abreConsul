@@ -105,6 +105,18 @@ es:
         starts_at: "Fecha de apertura"
         ends_at: "Fecha de cierre"
         geozone_restricted: "Restringida por zonas"
+      problem:
+        title: "Título"
+        brief: "Resumen"
+        who: "¿A quién afecta el problema?"
+        what: "¿En qué afecta el problema?"
+        where: "¿Dónde afecta el problema"
+        description: "Descripción"
+        starts_at: Fecha de inicio subida de propuestas
+        ends_at: Fecha límite
+        budget: Presupuesto máximo
+        restriction: Restricciones
+        geozone_restricted: "Restringida por zonas"
       poll/question:
         title: "Pregunta"
         valid_answers: "Posibles respuestas"

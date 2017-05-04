@@ -17,6 +17,9 @@ class Proposal < ActiveRecord::Base
   belongs_to :geozone
   has_many :comments, as: :commentable
   has_many :proposal_notifications
+  belongs_to :problem
+
+  accepts_nested_attributes_for :problem
 
   validates :title, presence: true
   validates :question, presence: true

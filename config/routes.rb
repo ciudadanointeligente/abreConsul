@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get '/welcome', to: 'welcome#welcome'
   get '/cuentasegura', to: 'welcome#verification', as: :cuentasegura
 
+  resources :problems
+
   resources :debates do
     member do
       post :vote
@@ -205,6 +207,8 @@ Rails.application.routes.draw do
     resources :managers, only: [:index, :create, :destroy] do
       get :search, on: :collection
     end
+
+    resources :problems, only: [:index, :new, :create, :destroy, :edit, :update]
 
     scope module: :poll do
       resources :polls do

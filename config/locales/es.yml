@@ -158,7 +158,7 @@ es:
     verification/sms: el teléfono
     signature_sheet: la hoja de firmas
   geozones:
-    none: Toda la ciudad
+    none: Toda la comuna
     all: Todos los ámbitos de actuación
   layouts:
     application:
@@ -175,7 +175,7 @@ es:
       copyright: Consul, %{year}
       description: Este portal usa la %{consul} que es %{open_source}.
       faq: Asistencia técnica
-      open_data_text: Todos los datos del Ayuntamiento son tuyos.
+      open_data_text: Todos los datos de la Municipalidad son tuyos.
       open_data_title: Datos Abiertos
       open_source: software libre
       open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
@@ -240,7 +240,7 @@ es:
         other: Hay %{count} nuevas respuestas a tu comentario en
       title: Notificaciones
   map:
-    title: "Distritos"
+    title: "Unidades Vecinales"
     proposal_for_district: "Crea una propuesta para tu distrito"
     select_district: "Ámbito de actuación"
     start_proposal: Crea una propuesta
@@ -290,17 +290,19 @@ es:
       other: Otra
     form:
       geozone: "Ámbito de actuación"
-      proposal_external_url: Enlace a documentación adicional
-      proposal_question: Pregunta de la propuesta
+      proposal_external_url: "Enlace a documentación adicional"
+      proposal_question: "Pregunta de la propuesta"
       proposal_question_example_html: Debe ser resumida en una pregunta cuya respuesta sea Sí o No. <em>Ej. '¿Está usted de acuerdo en peatonalizar la calle Mayor?'</em>
       proposal_responsible_name: Nombre y apellidos de la persona que hace esta propuesta
       proposal_responsible_name_note: "(individualmente o como representante de un colectivo; no se mostrará públicamente)"
-      proposal_summary: Resumen de la propuesta
+      proposal_summary: "Resumen de la propuesta"
       proposal_summary_note: "(máximo 200 caracteres)"
       proposal_text: Texto desarrollado de la propuesta
-      proposal_title: Título de la propuesta
-      proposal_video_url: Enlace a vídeo externo
+      proposal_title: "Título de la propuesta"
+      proposal_video_url: "Enlace a vídeo externo"
       proposal_video_url_note: Puedes añadir un enlace a YouTube o Vimeo
+      proposal_problem: "Problema a resolver"
+      proposal_problem_tip: "Puedes resolver un problema planteado por la Municipalidad o uno planteado por ti mismo"
       tags_instructions: "Etiqueta esta propuesta. Puedes elegir entre las categorías propuestas o introducir las que desees"
       tags_label: Temas
       tag_category_label: "Categorías"
@@ -372,6 +374,7 @@ es:
     show:
       author_deleted: Usuario eliminado
       code: 'Código de la propuesta:'
+      problem_title: 'Problema que resuelve:'
       comments:
         one: 1 Comentario
         other: "%{count} Comentarios"
@@ -391,6 +394,14 @@ es:
     update:
       form:
         submit_button: Guardar cambios
+    form:
+      blank: "Plantear problema"
+      title: "Título"
+      brief: "Resumen"
+      who: "¿A quién afecta el problema?"
+      what: "¿En qué afecta el porblema?"
+      where: "¿Dónde afecta el problema"
+      description: "Descripción"
   polls:
     all: "Todas"
     no_dates: "sin fecha asignada"
@@ -405,7 +416,7 @@ es:
       participate_button: "Participar en esta votación"
       participate_button_incoming: "Más información"
       participate_button_expired: "Votación terminada"
-      no_geozone_restricted: "Toda la ciudad"
+      no_geozone_restricted: "Toda la comuna"
       geozone_restricted: "Distritos"
       geozone_info: "Pueden participar las personas empadronadas en: "
       can_answer: "¡Puedes participar en esta votación!"
@@ -666,7 +677,7 @@ es:
       description: La ciudadanía decide si acepta o rechaza las propuestas más apoyadas.
       title: Decides
     do:
-      description: Si la propuesta es aceptada mayoritariamente, el Ayuntamiento la asume como propia y se hace.
+      description: Si la propuesta es aceptada mayoritariamente, la Municipalidad la asume como propia y se hace.
       title: Se hace
     proposal:
       description: Espacio abierto para propuestas ciudadanas sobre el tipo de ciudad en el que queremos vivir.

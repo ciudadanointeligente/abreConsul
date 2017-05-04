@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212123435) do
+ActiveRecord::Schema.define(version: 20170502205642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -220,10 +220,10 @@ ActiveRecord::Schema.define(version: 20170212123435) do
     t.string   "visit_id"
     t.datetime "hidden_at"
     t.integer  "flags_count",                             default: 0
+    t.datetime "ignored_flag_at"
     t.integer  "cached_votes_total",                      default: 0
     t.integer  "cached_votes_up",                         default: 0
     t.integer  "cached_votes_down",                       default: 0
-    t.datetime "ignored_flag_at"
     t.integer  "comments_count",                          default: 0
     t.datetime "confirmed_hide_at"
     t.integer  "cached_anonymous_votes_total",            default: 0
@@ -317,6 +317,11 @@ ActiveRecord::Schema.define(version: 20170212123435) do
   add_index "geozones_polls", ["geozone_id"], name: "index_geozones_polls_on_geozone_id", using: :btree
   add_index "geozones_polls", ["poll_id"], name: "index_geozones_polls_on_poll_id", using: :btree
 
+  create_table "geozones_problems", id: false, force: :cascade do |t|
+    t.integer "problem_id", null: false
+    t.integer "geozone_id", null: false
+  end
+
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -337,7 +342,7 @@ ActiveRecord::Schema.define(version: 20170212123435) do
   create_table "locks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "tries",        default: 0
-    t.datetime "locked_until", default: '2000-01-01 00:01:01', null: false
+    t.datetime "locked_until", default: '2000-01-01 04:01:01', null: false
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
@@ -554,6 +559,23 @@ ActiveRecord::Schema.define(version: 20170212123435) do
 
   add_index "polls", ["starts_at", "ends_at"], name: "index_polls_on_starts_at_and_ends_at", using: :btree
 
+  create_table "problems", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "what"
+    t.string   "who"
+    t.string   "where"
+    t.string   "budget"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "restriction"
+    t.string   "brief"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "geozone_restricted"
+    t.boolean  "admin",              default: false
+  end
+
   create_table "proposal_notifications", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -587,6 +609,7 @@ ActiveRecord::Schema.define(version: 20170212123435) do
     t.datetime "retired_at"
     t.string   "retired_reason"
     t.text     "retired_explanation"
+    t.integer  "problem_id"
   end
 
   add_index "proposals", ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree
@@ -596,6 +619,7 @@ ActiveRecord::Schema.define(version: 20170212123435) do
   add_index "proposals", ["geozone_id"], name: "index_proposals_on_geozone_id", using: :btree
   add_index "proposals", ["hidden_at"], name: "index_proposals_on_hidden_at", using: :btree
   add_index "proposals", ["hot_score"], name: "index_proposals_on_hot_score", using: :btree
+  add_index "proposals", ["problem_id"], name: "index_proposals_on_problem_id", using: :btree
   add_index "proposals", ["question"], name: "index_proposals_on_question", using: :btree
   add_index "proposals", ["summary"], name: "index_proposals_on_summary", using: :btree
   add_index "proposals", ["title"], name: "index_proposals_on_title", using: :btree
@@ -766,7 +790,7 @@ ActiveRecord::Schema.define(version: 20170212123435) do
     t.boolean  "email_digest",                              default: true
     t.boolean  "email_on_direct_message",                   default: true
     t.boolean  "official_position_badge",                   default: false
-    t.datetime "password_changed_at",                       default: '2016-11-23 10:59:20', null: false
+    t.datetime "password_changed_at",                       default: '2017-04-28 15:21:34', null: false
     t.boolean  "created_from_signature",                    default: false
     t.text     "former_users_data_log",                     default: ""
   end
@@ -889,6 +913,7 @@ ActiveRecord::Schema.define(version: 20170212123435) do
   add_foreign_key "poll_voters", "polls"
   add_foreign_key "poll_white_results", "poll_booth_assignments", column: "booth_assignment_id"
   add_foreign_key "poll_white_results", "poll_officer_assignments", column: "officer_assignment_id"
+  add_foreign_key "proposals", "problems"
   add_foreign_key "users", "geozones"
   add_foreign_key "valuators", "users"
 end

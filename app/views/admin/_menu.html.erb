@@ -3,7 +3,7 @@
 
     <li class="section-title">
       <a href="#">
-        <span class="icon-proposals"></span>
+        <span class="icon-tag"></span>
         <strong><%= t("admin.menu.title_categories") %></strong>
       </a>
       <ul <%= "class=is-active" if menu_tags? %>>
@@ -36,6 +36,19 @@
         <li <%= "class=active" if controller_name == "users" %>>
           <%= link_to t("admin.menu.hidden_users"), admin_users_path %>
         </li>
+      </ul>
+    </li>
+
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-proposals"></span>
+        <strong><%= t("admin.menu.title_problems") %></strong>
+      </a>
+      <ul <%= "class=is-active" if menu_moderated_content? %>>
+        <li <%= "class=active" if controller_name == "problems" %>>
+          <%= link_to t("admin.menu.view_problems"), admin_problems_path %>
+        </li>
+
       </ul>
     </li>
 
