@@ -27,7 +27,9 @@ class ProposalsController < ApplicationController
 
   def new
     @proposal = Proposal.new
-    @proposal.build_problem
+    if !params[:problem_id].present?
+      @proposal.build_problem
+    end
   end
 
   def index_customization
