@@ -133,6 +133,9 @@ feature 'Proposals' do
     fill_in 'proposal_video_url', with: 'http://youtube.com'
     fill_in 'proposal_responsible_name', with: 'Isabel Garcia'
     fill_in 'proposal_tag_list', with: 'Refugees, Solidarity'
+    fill_in 'proposal_problem_attributes_title', with: 'Titulo propuesta'
+    fill_in 'proposal_problem_attributes_brief', with: "I'm a shortly brief"
+    fill_in 'proposal_problem_attributes_description', with: 'Where where where'
     check 'proposal_terms_of_service'
 
     click_button 'Create proposal'
@@ -252,6 +255,9 @@ feature 'Proposals' do
     fill_in 'proposal_description', with: '<p>This is <script>alert("an attack");</script></p>'
     fill_in 'proposal_external_url', with: 'http://rescue.org/refugees'
     fill_in 'proposal_responsible_name', with: 'Isabel Garcia'
+    fill_in 'proposal_problem_attributes_title', with: 'Titulo propuesta'
+    fill_in 'proposal_problem_attributes_brief', with: "I'm a shortly brief"
+    fill_in 'proposal_problem_attributes_description', with: 'Where where where'
     check 'proposal_terms_of_service'
 
     click_button 'Create proposal'
@@ -273,6 +279,12 @@ feature 'Proposals' do
     fill_in 'proposal_summary', with: 'In summary, what we want is...'
     fill_in 'proposal_description', with: '<p>This is a link www.example.org</p>'
     fill_in 'proposal_responsible_name', with: 'Isabel Garcia'
+    fill_in 'proposal_problem_attributes_title', with: 'Titulo propuesta'
+    fill_in 'proposal_problem_attributes_what', with: 'What what what'
+    fill_in 'proposal_problem_attributes_who', with: 'Who who who'
+    fill_in 'proposal_problem_attributes_where', with: 'Where where where'
+    fill_in 'proposal_problem_attributes_brief', with: "I'm a shortly brief"
+    fill_in 'proposal_problem_attributes_description', with: 'Where where where'
     check 'proposal_terms_of_service'
 
     click_button 'Create proposal'
@@ -324,6 +336,9 @@ feature 'Proposals' do
       fill_in 'proposal_external_url', with: 'http://rescue.org/refugees'
       fill_in 'proposal_video_url', with: 'http://youtube.com'
       fill_in 'proposal_responsible_name', with: 'Isabel Garcia'
+      fill_in 'proposal_problem_attributes_title', with: 'Titulo propuesta'
+      fill_in 'proposal_problem_attributes_brief', with: "I'm a shortly brief"
+      fill_in 'proposal_problem_attributes_description', with: 'Where where where'
       check 'proposal_terms_of_service'
 
       click_button 'Create proposal'
@@ -349,6 +364,9 @@ feature 'Proposals' do
       fill_in 'proposal_external_url', with: 'http://rescue.org/refugees'
       fill_in 'proposal_video_url', with: 'http://youtube.com'
       fill_in 'proposal_responsible_name', with: 'Isabel Garcia'
+      fill_in 'proposal_problem_attributes_title', with: 'Titulo propuesta'
+      fill_in 'proposal_problem_attributes_brief', with: "I'm a shortly brief"
+      fill_in 'proposal_problem_attributes_description', with: 'Where where where'
       check 'proposal_terms_of_service'
 
       select('California', from: 'proposal_geozone_id')

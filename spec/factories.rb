@@ -1,12 +1,5 @@
 FactoryGirl.define do
-  factory :problem do
-    title "MyString"
-    description "MyString"
-    what "MyString"
-    who "MyString"
-    where "MyString"
-    budget "MyString"
-  end
+
   sequence(:document_number) { |n| "#{n.to_s.rjust(8, '0')}X" }
 
   factory :user do
@@ -146,6 +139,16 @@ FactoryGirl.define do
     end
   end
 
+  factory :problem do
+    title "MyString"
+    description "MyString"
+    what "MyString"
+    who "MyString"
+    where "MyString"
+    budget "MyString"
+    brief "In summary, what we want is..."
+  end
+
   factory :proposal do
     sequence(:title)     { |n| "Proposal #{n} title" }
     sequence(:summary)   { |n| "In summary, what we want is... #{n}" }
@@ -156,6 +159,7 @@ FactoryGirl.define do
     responsible_name     'John Snow'
     terms_of_service     '1'
     association :author, factory: :user
+    association :problem, factory: :problem
 
     trait :hidden do
       hidden_at Time.current
